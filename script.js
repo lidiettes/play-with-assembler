@@ -12,9 +12,8 @@ let startGame = document.querySelector('#start-game');
 let clickHere = document.querySelector('#click-here');
 let playAgain = document.querySelector('#play-again');
 let scorePlayer = document.querySelector('#score');
-let timeRandom = Math.floor(Math.random() * 11000);
 let myTimeout = 0;
-
+let date2 = 0;
 // OBJECT
 let myPlayers = {
     totalPlayers: 0,
@@ -29,7 +28,9 @@ if (localStorage.getItem(myPlayers) !== null) {
     scorePlayer.innerHTML = "Sin datos";
 }
 
-btnStart.addEventListener('click', function startBtn(){
+btnStart.addEventListener('click', startBtn);
+
+function startBtn(){
     myPlayers.totalPlayers++;
     myPlayers.name.push(userName.value);
     myPlayers.score.push(scorePlayer.value);
@@ -39,13 +40,14 @@ btnStart.addEventListener('click', function startBtn(){
     
     console.log(myPlayers);
     
-});
+};
 // CHANGE SCREEN
 
 startGame.addEventListener("click", function startBtn(){
     screen2.classList.add('no-display');
     screen3.classList.remove('no-display');
-    myTimeout = setTimeout(letPlay, timeRandom);
+
+    myTimeout = setTimeout(letPlay, Math.floor(Math.random() * 11000))
 })
 
 console.log (timeRandom)
@@ -55,4 +57,26 @@ console.log (timeRandom)
 function letPlay() {
     screen3.classList.add('no-display');
     screen4.classList.remove('no-display');
+    let date1 = new Date();
+    clickHere.addEventListener("click", function(){
+    date2 = new Date();
+    let Time = date2.getTime() - date1.getTime();
+    console.log(Time)
+    screen4.classList.add('no-display');
+    screen5.classList.remove('no-display');
+    playAgain.addEventListener("click", function(){
+        screen5.classList.add('no-display');
+        startBtn() })
+    })
+    
+   
+
+       //diference in milliseconds
+   
 }
+function playStart(){
+        
+} 
+
+   
+    
