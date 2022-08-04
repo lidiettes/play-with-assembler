@@ -75,7 +75,7 @@ function letPlay() {
    
 }
 function playStart(){
-        
+    return "hoy si";
 } 
 
    
