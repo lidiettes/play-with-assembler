@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Play </title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -16,21 +16,21 @@
             <section id="screen-1">
                 <h1>Choose a user name</h1>
                 <label for="">User name</label>
-                <input type="text"></input>
+                <input type="text" id="user-name"></input>
                 <button id="start-user" class="buttons" type="submit">Start</button>
             </section>
 
-            <section id="screen-2">
+            <section id="screen-2" class="no-display">
                 <button id= "start-game" class="buttons">Start Game</button>
             </section>
-            <section id="screen-3">
+            <section id="screen-3" class="no-display">
                 <h3>Get ready...</h3>
             </section>
-            <section id="screen-4">
+            <section id="screen-4" class="no-display">
                 <button id="click-here">Click here</button>
             </section>
 
-            <section id="screen-5">
+            <section id="screen-5" class="no-display">
                 <h1>Your score</h1>
                 <p>Your reaction time was:</p>
                 <span></span>
@@ -40,6 +40,10 @@
 
             <div class="container-user-score">
                 <h3>User Scores</h3>
+                <div id="score">
+
+                </div>
+                </ul>
             </div>
         </div>
 
