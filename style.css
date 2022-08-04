@@ -7,6 +7,7 @@ body {
     height: 100vh;
     width: 100vw;
     font-family: 'Heebo', sans-serif;
+    background-color: #e7e0e0;
 }
 
 .container-gray {
@@ -15,9 +16,11 @@ body {
     background-color: #e7e0e0;
     justify-content: center;
     gap: 25px;
-    width: 95%;
+    width: 100%;
     height: 500px;
     border-radius: 5px;
+    margin-top: 50px;
+    
     
 }
 
