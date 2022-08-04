@@ -68,3 +68,7 @@ button {
     margin-top: 20px;
     margin: 10px;
   }
+
+  .no-display {
+    display: none;
+  }
