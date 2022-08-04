@@ -1,6 +1,7 @@
 * {
     padding: 0px;
     margin: 0px;
+<<<<<<< HEAD
     box-sizing: border-box;
 }
 
@@ -13,30 +14,57 @@ body {
 }
 
 
+=======
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Heebo', sans-serif;
+    background-color: #e7e0e0;
+}
+
+>>>>>>> develop
 .container-gray {
     display: grid;
     grid-template-columns: 60% 30%;
-    background-color: #d2d0d0;
+    background-color: #e7e0e0;
     justify-content: center;
     gap: 25px;
-    width: 95%;
+    width: 100%;
     height: 500px;
     border-radius: 5px;
-    margin: 30px;
+    margin-top: 50px;
+    
+    
 }
 
 .container-user {
     background-color: white;
     width: 100%;
-    height: 450px;
+    height: 90%;
     border-radius: 5px;
     margin-top: 20px;
 }
 
+<<<<<<< HEAD
 .container-user-scores {
+=======
+.container-user-score {
+>>>>>>> develop
     background-color: white;
     width: 100%;
-    height: 200px;
+    height: 90%;
     border-radius: 5px;
     margin-top: 20px;
 }
+button {
+    background-color: black;
+    width: 90%;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 2px 2px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    margin: 10px;
+  }
