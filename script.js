@@ -16,20 +16,21 @@ let timeRandom = Math.floor(Math.random() * 11000); // get ready button random t
 let myTimeout = 0;
 
 // OBJECT
-let myPlayers = {
+    let myPlayers = {
     totalPlayers: 0,
     name: [],
     score: []
 };
 
-if (localStorage.getItem(myPlayers) !== null) {
-    myPlayers = JSON.parse(localStorage.getItem);
-    scorePlayer.innerHTML = JSON.stringify(myPlayers);
+
+if (localStorage.getItem("myPlayers") !== null) {
+    myPlayers = JSON.parse(localStorage.getItem("myPlayers")); // GET DATES
+        
 } else {
     scorePlayer.innerHTML = "Sin datos";
 }
 
-btnStart.addEventListener("click",function startBtn(){
+btnStart.addEventListener("click",function startBtn(e){
     myPlayers.totalPlayers++;
     myPlayers.name.push(userName.value);
     myPlayers.score.push(scorePlayer.value);
@@ -38,7 +39,9 @@ btnStart.addEventListener("click",function startBtn(){
     scorePlayer.innerHTML = JSON.stringify(myPlayers);
     
     console.log(myPlayers);
-    
+
+    localStorage.setItem("User", JSON.stringify(myPlayers)); // SAVE DATES
+    e.preventDefault();
 })
 
 // CHANGE SCREEN
