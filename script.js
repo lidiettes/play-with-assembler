@@ -22,10 +22,11 @@ let myPlayers = {
 };
 
 
+//let agregar = [];
 
 if (localStorage.getItem("myPlayers") !== null) {
   myPlayers = JSON.parse(localStorage.getItem("myPlayers")); // GET DATES
-  agregar = myPlayers;
+ // agregar = myPlayers;
 } else {
   scorePlayer.innerHTML = "Sin datos";
 }
@@ -33,10 +34,10 @@ if (localStorage.getItem("myPlayers") !== null) {
 btnStart.addEventListener("click", function startBtn() {
   myPlayers.totalPlayers++;
   myPlayers.name.push(userName.value);
-  myPlayers.score.push(scorePlayer.value);
+  
   screen1.classList.add("no-display");
   screen2.classList.remove("no-display");
-  scorePlayer.innerHTML = JSON.stringify(myPlayers);
+  //scorePlayer.innerHTML = JSON.stringify(myPlayers);
 
   console.log(myPlayers);
 
@@ -54,14 +55,15 @@ startGame.addEventListener("click", function startBtn() {
 });
 
 function letPlay() {
-  let date1 = new Date();
+  const date1 = new Date().getTime;
   screen3.classList.add("no-display");
   screen4.classList.remove("no-display");
   clickHere.addEventListener("click", function () {
-    let date2 = new Date();
-    let Time = date2.getTime() - date1.getTime(); //score
+    const date2 = new Date().getTime;
+    const Time = date2 - date1; //score
     scorePlayer.innerHTML = Time / 1000;
-    console.log(Time);
+    myPlayers.score.push(Time / 1000);
+    localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
     screen4.classList.add("no-display");
     screen5.classList.remove("no-display");
 
@@ -76,4 +78,3 @@ function letPlay() {
 function playStart() {
   return "hoy si";
 }
-
