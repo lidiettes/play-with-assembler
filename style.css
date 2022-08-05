@@ -53,3 +53,12 @@ button {
   .no-display {
     display: none;
   }
+
+  .title-screen-h1{
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .title-screen-h3 {
+    
+  }
