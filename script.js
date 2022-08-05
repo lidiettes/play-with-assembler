@@ -76,9 +76,6 @@ function letPlay() {
 function playStart() {
   return "hoy si";
 }
-<<<<<<< HEAD
-=======
 function playStart(){
     return "hoy si";
 } 
->>>>>>> 1fd7d78001d0a3b0549e18180df1ba3717bbfe81
