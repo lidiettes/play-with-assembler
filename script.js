@@ -64,6 +64,7 @@ function letPlay() {
     finishTime = new Date();
     timer = (finishTime - startTime) / 1000;
     myPlayers.score = timer;
+   // myPlayers.score.push(timer);
     document.getElementById("score").innerHTML = myPlayers.score + " seconds";
 
    // clearInterval(); // var positionRandomInterval;
