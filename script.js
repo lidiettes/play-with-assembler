@@ -63,7 +63,7 @@ function letPlay() {
   clickHere.addEventListener("click", function startBtn() {
     finishTime = new Date();
     timer = (finishTime - startTime) / 1000;
-    myPlayers.score.push() = timer;
+    myPlayers.score = timer;
     document.getElementById("score").innerHTML = myPlayers.score + " seconds";
 
    // clearInterval(); // var positionRandomInterval;
