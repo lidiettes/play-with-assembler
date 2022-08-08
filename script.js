@@ -14,6 +14,7 @@ let scorePlayer = document.querySelector(".score");
 let scoreCurrent = document.querySelector("#score-current-play");
 let timeRandom = Math.floor(Math.random() * 11000); // get ready button random time
 let myTimeout = 0;
+let userNameScore = document.querySelector("#user-name-score");
 
 var timer = 0;
 var startTime;
@@ -22,7 +23,7 @@ var finishTime;
 // OBJECT
 let myPlayers = {
   name: [],
-  score: []
+  score: [],
 };
 //---------------------------------------//
 
@@ -32,52 +33,62 @@ if (localStorage.getItem("myPlayers") !== null) {
   scorePlayer.innerHTML = "Sin datos";
 }
 
+
+
 //---------------------------------------//
 
-btnStart.addEventListener("click", function() {
-  
+
+
+btnStart.addEventListener("click", function () {
   myPlayers.name.push(userName.value);
-  
+  userNameScore.innerHTML = myPlayers[myPlayers.length-1].name;
+
+  scoreCurrent.innerHTML = "Current play";
+
   screen1.classList.add("no-display");
   screen2.classList.remove("no-display");
- // scorePlayer.innerHTML = JSON.stringify(myPlayers); //ESTO NO ENTIENDO SI TODAVIA NO DA PUNTOS
-  //localStorage.setItem("myPlayers", JSON.stringify(myPlayers)); // SAVE DATES
   
- // userName.innerHTML = JSON.stringify(myPlayers.name); //mi cosecha 2
- //document.getElementById("username").innerHTML= myPlayers.name;// de mi cosecha
+  // scorePlayer.innerHTML = JSON.stringify(myPlayers); //ESTO NO ENTIENDO SI TODAVIA NO DA PUNTOS
+  //localStorage.setItem("myPlayers", JSON.stringify(myPlayers)); // SAVE DATES
+
+  // userName.innerHTML = JSON.stringify(myPlayers.name); //mi cosecha 2
+  //document.getElementById("username").innerHTML= myPlayers.name;// de mi cosecha
   //
 });
 
-startGame.addEventListener("click", function() {
+
+
+startGame.addEventListener("click", function () {
   timer = 0;
   screen2.classList.add("no-display");
   screen3.classList.remove("no-display");
   myTimeout = setTimeout(letPlay, timeRandom);
+  
+  //document.getElementById("score-data").innerHTML = objectScore.score + " seconds";
 });
 
 function letPlay() {
-  
   screen3.classList.add("no-display");
   screen4.classList.remove("no-display");
-  startTime = new Date ();
+  startTime = new Date();
 }
 
-  clickHere.addEventListener("click", function() {
-    finishTime = new Date();
-    timer = (finishTime - startTime) / 1000;
-    //myPlayers.score = timer;
-    myPlayers.score.push(timer);
-    scorePlayer.innerHTML = myPlayers.score + " seconds";
+clickHere.addEventListener("click", function () {
+  finishTime = new Date();
+  timer = (finishTime - startTime) / 1000;
+  //myPlayers.score = timer;
+  myPlayers.score.push(timer);
+  scorePlayer.innerHTML = myPlayers.score + " seconds";
 
-   // clearInterval(); // var positionRandomInterval;
+  // clearInterval(); // var positionRandomInterval;
 
-    localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
-    screen4.classList.add("no-display");
-    screen5.classList.remove("no-display");
+  localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
+  screen4.classList.add("no-display");
+  screen5.classList.remove("no-display");
 
-    playAgain.addEventListener("click", function() {
-      //que yo sepa aqui no le estmaos diciendo ninguna funcion o si
-      screen5.classList.add("no-display");
-      screen1.classList.remove("no-display");
-    });
+  playAgain.addEventListener("click", function () {
+    //que yo sepa aqui no le estmaos diciendo ninguna funcion o si
+    screen5.classList.add("no-display");
+    screen1.classList.remove("no-display");
   });
+});
