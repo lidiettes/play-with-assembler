@@ -12,6 +12,7 @@ body {
     align-items: center;
     
     font-family: 'fantasy', Impact;
+    -webkit-text-stroke: 0.1px rgb(65, 65, 4);
    
 }
 
@@ -47,7 +48,14 @@ body {
 section{
     
 
-    width: 50%;
+    width: 70%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: crosshair;
+    
  
 
     border: orange 3px solid;
@@ -93,4 +101,8 @@ section{
     outline: none;
     filter: brightness(1.1);
    
+  }
+  #user-name{
+    width: 50%;
+    margin:20px;
   }
