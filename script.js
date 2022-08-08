@@ -11,61 +11,82 @@ let startGame = document.querySelector("#start-game");
 let clickHere = document.querySelector("#click-here");
 let playAgain = document.querySelector("#play-again");
 let scorePlayer = document.querySelector(".score");
+let scoreCurrent = document.querySelector("#score-current-play");
 let timeRandom = Math.floor(Math.random() * 11000); // get ready button random time
 let myTimeout = 0;
+let userNameScore = document.querySelector("#user-name-score");
+
+var timer = 0;
+var startTime;
+var finishTime;
 
 // OBJECT
 let myPlayers = {
-  totalPlayers: 0,
   name: [],
   score: [],
 };
-
 
 //let agregar = [];
 
 if (localStorage.getItem("myPlayers") !== null) {
   myPlayers = JSON.parse(localStorage.getItem("myPlayers")); // GET DATES
- // agregar = myPlayers;
 } else {
   scorePlayer.innerHTML = "Sin datos";
 }
 
-btnStart.addEventListener("click", function startBtn() {
-  myPlayers.totalPlayers++;
+
+
+//---------------------------------------//
+
+
+
+btnStart.addEventListener("click", function () {
   myPlayers.name.push(userName.value);
-  
+  userNameScore.innerHTML = myPlayers[myPlayers.length-1].name;
+
+  scoreCurrent.innerHTML = "Current play";
+
   screen1.classList.add("no-display");
   screen2.classList.remove("no-display");
-  //scorePlayer.innerHTML = JSON.stringify(myPlayers);
+  
+  // scorePlayer.innerHTML = JSON.stringify(myPlayers); //ESTO NO ENTIENDO SI TODAVIA NO DA PUNTOS
+  //localStorage.setItem("myPlayers", JSON.stringify(myPlayers)); // SAVE DATES
 
-  console.log(myPlayers);
-
-  localStorage.setItem("myPlayers", JSON.stringify(myPlayers)); // SAVE DATES
-  // 
-
+  // userName.innerHTML = JSON.stringify(myPlayers.name); //mi cosecha 2
+  //document.getElementById("username").innerHTML= myPlayers.name;// de mi cosecha
+  //
 });
+
 
 // CHANGE SCREEN
 
-startGame.addEventListener("click", function startBtn() {
+startGame.addEventListener("click", function () {
+  timer = 0;
   screen2.classList.add("no-display");
   screen3.classList.remove("no-display");
   myTimeout = setTimeout(letPlay, timeRandom);
+  
+  //document.getElementById("score-data").innerHTML = objectScore.score + " seconds";
 });
 
 function letPlay() {
-  const date1 = new Date().getTime;
   screen3.classList.add("no-display");
   screen4.classList.remove("no-display");
-  clickHere.addEventListener("click", function () {
-    const date2 = new Date().getTime;
-    const Time = date2 - date1; //score
-    scorePlayer.innerHTML = Time / 1000;
-    myPlayers.score.push(Time / 1000);
-    localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
-    screen4.classList.add("no-display");
-    screen5.classList.remove("no-display");
+  startTime = new Date();
+}
+
+clickHere.addEventListener("click", function () {
+  finishTime = new Date();
+  timer = (finishTime - startTime) / 1000;
+  //myPlayers.score = timer;
+  myPlayers.score.push(timer);
+  scorePlayer.innerHTML = myPlayers.score + " seconds";
+
+  // clearInterval(); // var positionRandomInterval;
+
+  localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
+  screen4.classList.add("no-display");
+  screen5.classList.remove("no-display");
 
     playAgain.addEventListener("click", function () {
       screen5.classList.add("no-display");
@@ -78,3 +99,6 @@ function letPlay() {
 function playStart() {
   return "hoy si";
 }
+function playStart(){
+    return "hoy si";
+} 
