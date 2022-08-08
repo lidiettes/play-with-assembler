@@ -15,6 +15,7 @@ let scoreCurrent = document.querySelector("#score-current-play");
 let timeRandom = Math.floor(Math.random() * 11000); // get ready button random time
 let myTimeout = 0;
 let userNameScore = document.querySelector("#user-name-score");
+let player = "no name";
 
 var timer = 0;
 var startTime;
@@ -33,17 +34,17 @@ if (localStorage.getItem("myPlayers") !== null) {
   scorePlayer.innerHTML = "Sin datos";
 }
 
-
-
 //---------------------------------------//
 
 
 
 btnStart.addEventListener("click", function () {
+  player = userName.value;
   myPlayers.name.push(userName.value);
-  userNameScore.innerHTML = myPlayers[myPlayers.length-1].name;
+  userNameScore.innerHTML = player;
+ // myPlayers[Object.keys(myPlayers)[Object.keys(fruitObject).length - 1]]
 
-  scoreCurrent.innerHTML = "Current play";
+  scoreCurrent.innerHTML = "Currently playing";
 
   screen1.classList.add("no-display");
   screen2.classList.remove("no-display");
@@ -59,6 +60,7 @@ btnStart.addEventListener("click", function () {
 
 
 startGame.addEventListener("click", function () {
+  
   timer = 0;
   screen2.classList.add("no-display");
   screen3.classList.remove("no-display");
@@ -75,10 +77,11 @@ function letPlay() {
 
 clickHere.addEventListener("click", function () {
   finishTime = new Date();
-  timer = (finishTime - startTime) / 1000;
+  timer = (finishTime - startTime)/1000;
+  timer = Math.round(timer*10)/10; 
   //myPlayers.score = timer;
   myPlayers.score.push(timer);
-  scorePlayer.innerHTML = myPlayers.score + " seconds";
+  scorePlayer.innerHTML = timer + " seconds";
 
   // clearInterval(); // var positionRandomInterval;
 
