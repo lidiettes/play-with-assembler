@@ -39,6 +39,12 @@ body {
     border-radius: 5px;
     margin-top: 20px;
 }
+
+p {
+    font-weight: bold;
+    margin: 40px;
+}
+
 button {
     background-color: black;
     width: 20%;

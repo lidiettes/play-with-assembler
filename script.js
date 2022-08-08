@@ -10,7 +10,8 @@ let userName = document.querySelector("#user-name");
 let startGame = document.querySelector("#start-game");
 let clickHere = document.querySelector("#click-here");
 let playAgain = document.querySelector("#play-again");
-let scorePlayer = document.querySelector(".score");
+let containerScore = document.querySelector('#score');
+let scorePlayer = document.querySelector(".score-time");
 let scoreCurrent = document.querySelector("#score-current-play");
 let timeRandom = Math.floor(Math.random() * 11000); // get ready button random time
 let myTimeout = 0;
@@ -28,11 +29,24 @@ let myPlayers = {
 };
 //---------------------------------------//
 
+
+
 if (localStorage.getItem("myPlayers") !== null) {
   myPlayers = JSON.parse(localStorage.getItem("myPlayers")); // GET DATES
 } else {
   scorePlayer.innerHTML = "Sin datos";
 }
+
+function load(){
+for (i=0; i<myPlayers.name.length; i++) {
+    let newSpan = document.createElement("span");
+    newSpan.innerHTML = `<p>${myPlayers.name[i]} ${myPlayers.score[i]} seconds</p>`;
+    containerScore.insertAdjacentElement('beforeend', newSpan); 
+    player = userName.value;
+    userNameScore.innerHTML = player;
+}
+
+};
 
 //---------------------------------------//
 
@@ -44,7 +58,7 @@ btnStart.addEventListener("click", function () {
   userNameScore.innerHTML = player;
  // myPlayers[Object.keys(myPlayers)[Object.keys(fruitObject).length - 1]]
 
-  scoreCurrent.innerHTML = "Currently playing";
+  scoreCurrent.innerHTML = "currently playing";
 
   screen1.classList.add("no-display");
   screen2.classList.remove("no-display");
@@ -81,11 +95,13 @@ clickHere.addEventListener("click", function () {
   timer = Math.round(timer*10)/10; 
   //myPlayers.score = timer;
   myPlayers.score.push(timer);
+  scoreCurrent.innerHTML = timer + " seconds";
   scorePlayer.innerHTML = timer + " seconds";
-
+  load();
   // clearInterval(); // var positionRandomInterval;
 
   localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
+  
   screen4.classList.add("no-display");
   screen5.classList.remove("no-display");
 
@@ -95,3 +111,5 @@ clickHere.addEventListener("click", function () {
     screen1.classList.remove("no-display");
   });
 });
+
+window.onload = load();
