@@ -15,6 +15,7 @@ let scorePlayer = document.querySelector(".score-time");
 let scoreCurrent = document.querySelector("#score-current-play");
 let timeRandom = Math.floor(Math.random() * 11000); // get ready button random time
 let myTimeout = 0;
+let insertScore = document.querySelector("#insert-score");
 let userNameScore = document.querySelector("#user-name-score");
 let player = "no name";
 
@@ -36,14 +37,14 @@ if (localStorage.getItem("myPlayers") !== null) {
 }
 
 function load() {
-  while (containerScore.contains(document.getElementById("score-span"))) {
-    containerScore.removeChild(document.getElementById("score-span"));
+  while (insertScore.contains(document.getElementById("score-span"))) {
+    insertScore.removeChild(document.getElementById("score-span"));
   }
   for (i = 0; i < myPlayers.name.length; i++) {
     let newSpan = document.createElement("span");
     newSpan.id = "score-span";
     newSpan.innerHTML = `<p>${myPlayers.name[i]} ${myPlayers.score[i]} seconds</p>`;
-    containerScore.insertAdjacentElement("beforeend", newSpan);
+    insertScore.insertAdjacentElement("afterbegin", newSpan);
     player = userName.value;
     userNameScore.innerHTML = player;
   }
@@ -91,8 +92,8 @@ clickHere.addEventListener("click", function () {
   timer = Math.round(timer * 10) / 10;
   //myPlayers.score = timer;
   myPlayers.score.push(timer);
-  //scoreCurrent.innerHTML = timer + " seconds";
-  //scorePlayer.innerHTML = timer + " seconds";
+  scoreCurrent.innerHTML = timer + " seconds";
+  scorePlayer.innerHTML = timer + " seconds";
 
   load();
   // clearInterval(); // var positionRandomInterval;
