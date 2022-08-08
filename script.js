@@ -28,12 +28,17 @@ let myPlayers = {
   name: [],
   score: [],
 };
+<<<<<<< HEAD
 
 
 
 //let agregar = [];
 
 
+=======
+
+
+>>>>>>> juan
 if (localStorage.getItem("myPlayers") !== null) {
   myPlayers = JSON.parse(localStorage.getItem("myPlayers")); // GET DATES
 } else {
@@ -53,8 +58,11 @@ function load() {
     userNameScore.innerHTML = player;
   }
 }
+<<<<<<< HEAD
 
 //---------------------------------------//
+=======
+>>>>>>> juan
 
 btnStart.addEventListener("click", function () {
   player = userName.value;
@@ -75,6 +83,12 @@ btnStart.addEventListener("click", function () {
   //
 });
 
+<<<<<<< HEAD
+=======
+
+// CHANGE SCREEN
+
+>>>>>>> juan
 startGame.addEventListener("click", function () {
   timer = 0;
   screen2.classList.add("no-display");
@@ -102,6 +116,7 @@ clickHere.addEventListener("click", function () {
   load();
   // clearInterval(); // var positionRandomInterval;
 
+<<<<<<< HEAD
     localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
     screen4.classList.add("no-display");
     screen5.classList.remove("no-display");
@@ -112,3 +127,19 @@ clickHere.addEventListener("click", function () {
       screen1.classList.remove("no-display");
     });
   });
+=======
+  //localStorage.clear();
+  localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
+
+  screen4.classList.add("no-display");
+  screen5.classList.remove("no-display");
+
+  playAgain.addEventListener("click", function () {
+    //que yo sepa aqui no le estmaos diciendo ninguna funcion o si
+    screen5.classList.add("no-display");
+    screen1.classList.remove("no-display");
+  });
+});
+
+window.onload = load();
+>>>>>>> juan
