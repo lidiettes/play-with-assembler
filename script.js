@@ -10,7 +10,7 @@ let userName = document.querySelector("#user-name");
 let startGame = document.querySelector("#start-game");
 let clickHere = document.querySelector("#click-here");
 let playAgain = document.querySelector("#play-again");
-let containerScore = document.querySelector('#score');
+let containerScore = document.querySelector("#score");
 let scorePlayer = document.querySelector(".score-time");
 let scoreCurrent = document.querySelector("#score-current-play");
 let timeRandom = Math.floor(Math.random() * 11000); // get ready button random time
@@ -29,40 +29,39 @@ let myPlayers = {
 };
 //---------------------------------------//
 
-
-
 if (localStorage.getItem("myPlayers") !== null) {
   myPlayers = JSON.parse(localStorage.getItem("myPlayers")); // GET DATES
 } else {
   scorePlayer.innerHTML = "Sin datos";
 }
 
-function load(){
-for (i=0; i<myPlayers.name.length; i++) {
+function load() {
+  while (containerScore.contains(document.getElementById("score-span"))) {
+    containerScore.removeChild(document.getElementById("score-span"));
+  }
+  for (i = 0; i < myPlayers.name.length; i++) {
     let newSpan = document.createElement("span");
+    newSpan.id = "score-span";
     newSpan.innerHTML = `<p>${myPlayers.name[i]} ${myPlayers.score[i]} seconds</p>`;
-    containerScore.insertAdjacentElement('beforeend', newSpan); 
+    containerScore.insertAdjacentElement("beforeend", newSpan);
     player = userName.value;
     userNameScore.innerHTML = player;
+  }
 }
 
-};
-
 //---------------------------------------//
-
-
 
 btnStart.addEventListener("click", function () {
   player = userName.value;
   myPlayers.name.push(userName.value);
   userNameScore.innerHTML = player;
- // myPlayers[Object.keys(myPlayers)[Object.keys(fruitObject).length - 1]]
+  // myPlayers[Object.keys(myPlayers)[Object.keys(fruitObject).length - 1]]
 
   scoreCurrent.innerHTML = "currently playing";
 
   screen1.classList.add("no-display");
   screen2.classList.remove("no-display");
-  
+
   // scorePlayer.innerHTML = JSON.stringify(myPlayers); //ESTO NO ENTIENDO SI TODAVIA NO DA PUNTOS
   //localStorage.setItem("myPlayers", JSON.stringify(myPlayers)); // SAVE DATES
 
@@ -71,15 +70,12 @@ btnStart.addEventListener("click", function () {
   //
 });
 
-
-
 startGame.addEventListener("click", function () {
-  
   timer = 0;
   screen2.classList.add("no-display");
   screen3.classList.remove("no-display");
   myTimeout = setTimeout(letPlay, timeRandom);
-  
+
   //document.getElementById("score-data").innerHTML = objectScore.score + " seconds";
 });
 
@@ -91,17 +87,19 @@ function letPlay() {
 
 clickHere.addEventListener("click", function () {
   finishTime = new Date();
-  timer = (finishTime - startTime)/1000;
-  timer = Math.round(timer*10)/10; 
+  timer = (finishTime - startTime) / 1000;
+  timer = Math.round(timer * 10) / 10;
   //myPlayers.score = timer;
   myPlayers.score.push(timer);
-  scoreCurrent.innerHTML = timer + " seconds";
-  scorePlayer.innerHTML = timer + " seconds";
+  //scoreCurrent.innerHTML = timer + " seconds";
+  //scorePlayer.innerHTML = timer + " seconds";
+
   load();
   // clearInterval(); // var positionRandomInterval;
 
+  //localStorage.clear();
   localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
-  
+
   screen4.classList.add("no-display");
   screen5.classList.remove("no-display");
 
