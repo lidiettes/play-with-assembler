@@ -21,7 +21,7 @@ var finishTime;
 // OBJECT
 let myPlayers = {
   name: [],
-  score: [],
+  score: []
 };
 //---------------------------------------//
 
