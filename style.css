@@ -89,35 +89,23 @@ section{
 section {
 
     width: 100%;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
+    height: 90%;
+    border-radius: 5px;
+<<<<<<<<< Temporary merge branch 1
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+p {
+    font-weight: bold;
+    margin: 40px;
+}
+
+button {
+=========
+   
+    display:flex;
     align-items: center;
-    justify-content: center;
-    cursor: crosshair;
-    border: greenyellow 10px solid;
-    border-radius: 20px;
-    
-}
-
-.ready {
-    font-size: 60px;
-    
-}
-
-.ready:hover {
-    color: greenyellow;
-    transition: ease-in-out;
-    transition-duration: 1s;
-    transition-delay: 1s;
-    
-    
->>>>>>> juan
-}
-
-.container-user-score {
-    display: grid;
-    grid-template-rows: 80px auto;
     justify-content: center;
     align-items: flex-start;
     width: 100%;

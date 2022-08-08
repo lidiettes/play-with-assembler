@@ -116,21 +116,10 @@ clickHere.addEventListener("click", function () {
   load();
   // clearInterval(); // var positionRandomInterval;
 
-<<<<<<< HEAD
-    localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
-    screen4.classList.add("no-display");
-    screen5.classList.remove("no-display");
-
-    playAgain.addEventListener("click", function() {
-      //que yo sepa aqui no le estmaos diciendo ninguna funcion o si
-      screen5.classList.add("no-display");
-      screen1.classList.remove("no-display");
-    });
-  });
-=======
   //localStorage.clear();
   localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
 
+<<<<<<<<< Temporary merge branch 1
   screen4.classList.add("no-display");
   screen5.classList.remove("no-display");
 
@@ -142,4 +131,11 @@ clickHere.addEventListener("click", function () {
 });
 
 window.onload = load();
->>>>>>> juan
+=========
+    playAgain.addEventListener("click", function() {
+      //que yo sepa aqui no le estmaos diciendo ninguna funcion o si
+      screen5.classList.add("no-display");
+      screen1.classList.remove("no-display");
+    });
+  });
+>>>>>>>>> Temporary merge branch 2
