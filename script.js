@@ -47,6 +47,7 @@ if (localStorage.getItem("myPlayers") !== null) {
  // scorePlayer.innerHTML = "Sin datos";
 //}
 //
+}
 function loadScreen1() {
   screen.insertAdjacentHTML('afterbegin', screen1);
 
@@ -120,10 +121,12 @@ function loadScreen5() {
 };
 function addNewItem(item) {
   //if (localStorage.getItem("myList") !== null) {
-  //let myList=[]; 
+ // let myList=[]; 
   let myList = JSON.parse(localStorage.getItem("myList", "[]"));
   //}
-   myList.push(item);
+ // myList.push(JSON.parse(localStorage.getItem("myList", "[]")));
+ //  myList.push(item);
+ console.log(myList)
   localStorage.setItem("myList", JSON.stringify(myList));
 
 
