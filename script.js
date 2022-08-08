@@ -101,6 +101,7 @@ clickHere.addEventListener("click", function () {
   //localStorage.clear();
   localStorage.setItem("myPlayers", JSON.stringify(myPlayers));
 
+
   screen4.classList.add("no-display");
   screen5.classList.remove("no-display");
 
@@ -112,3 +113,5 @@ clickHere.addEventListener("click", function () {
 });
 
 window.onload = load();
+ 
+
