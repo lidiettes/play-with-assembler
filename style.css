@@ -107,6 +107,7 @@ section {
     filter: brightness(1.1);
     mix-blend-mode: lighten;
     background-color: black;
+    cursor: crosshair;
 }
 
 #user-name {
@@ -135,6 +136,7 @@ section {
     margin-top: 15px;
     font-size: xx-large;
     text-align: center;
+
 }
 
 p {
@@ -144,4 +146,11 @@ p {
 
 .you-score {
     font-size: xx-large;
+}
+
+#score-current-play {
+    color: rgb(241, 64, 64);
+}
+#user-name-score {
+    color: rgb(241, 64, 64);
 }
